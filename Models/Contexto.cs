@@ -7,5 +7,15 @@ namespace TrabalhoWEBMVC3.Models
         public Contexto(DbContextOptions<Contexto> options) : base(options) { }
 
         public DbSet<Empresa> Empresas { get; set; }
+
+        public DbSet<Cliente> Clientes { get; set; }
+
+        public DbSet<Impressora> Impressoras { get; set; }
+
+        public DbSet<Tonner> Tonners { get; set; }
+
+        public DbSet<Pedido> Pedidos { get; set; }
+
+        public DbSet<Estoque> Estoques { get; set; }
     }
 }

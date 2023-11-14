@@ -11,8 +11,8 @@ using TrabalhoWEBMVC3.Models;
 namespace TrabalhoWEBMVC3.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20231114193034_Atualizacao2")]
-    partial class Atualizacao2
+    [Migration("20231114211231_Atualizacao1")]
+    partial class Atualizacao1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -74,27 +74,6 @@ namespace TrabalhoWEBMVC3.Migrations
                     b.ToTable("Empresas");
                 });
 
-            modelBuilder.Entity("TrabalhoWEBMVC3.Models.Estoque", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
-
-                    b.Property<int>("quantidade")
-                        .HasColumnType("int");
-
-                    b.Property<int>("tonnersID")
-                        .HasColumnType("int");
-
-                    b.HasKey("id");
-
-                    b.HasIndex("tonnersID");
-
-                    b.ToTable("Estoques");
-                });
-
             modelBuilder.Entity("TrabalhoWEBMVC3.Models.Impressora", b =>
                 {
                     b.Property<int>("id")
@@ -133,8 +112,8 @@ namespace TrabalhoWEBMVC3.Migrations
                     b.Property<int>("tonnersID")
                         .HasColumnType("int");
 
-                    b.Property<float>("valor")
-                        .HasColumnType("real");
+                    b.Property<double>("valor")
+                        .HasColumnType("float");
 
                     b.HasKey("id");
 
@@ -153,15 +132,16 @@ namespace TrabalhoWEBMVC3.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
 
-                    b.Property<string>("cor")
-                        .IsRequired()
-                        .HasMaxLength(35)
-                        .HasColumnType("nvarchar(35)");
-
                     b.Property<string>("descricao")
                         .IsRequired()
                         .HasMaxLength(35)
                         .HasColumnType("nvarchar(35)");
+
+                    b.Property<int>("quantidade")
+                        .HasColumnType("int");
+
+                    b.Property<double>("valor")
+                        .HasColumnType("float");
 
                     b.HasKey("id");
 
@@ -177,17 +157,6 @@ namespace TrabalhoWEBMVC3.Migrations
                         .IsRequired();
 
                     b.Navigation("empresas");
-                });
-
-            modelBuilder.Entity("TrabalhoWEBMVC3.Models.Estoque", b =>
-                {
-                    b.HasOne("TrabalhoWEBMVC3.Models.Tonner", "tonners")
-                        .WithMany()
-                        .HasForeignKey("tonnersID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("tonners");
                 });
 
             modelBuilder.Entity("TrabalhoWEBMVC3.Models.Pedido", b =>

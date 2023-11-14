@@ -82,13 +82,14 @@ namespace Trabalho2WEBMVC.Controllers
             Random randNum = new Random();
 
             string[] vTon = { "SP3710X", "505A", "E260", "CF226X", "CF258X", "D201L" };
-            string[] vCores = { "Preto", "Azul", "Amarelo", "Vermelho", "Magenta", "Ciano" };
+            double[] vValor = { 100.0 , 150.00 , 255.99 , 59.99, 220.50, 310.00};
 
             for (int i = 0; i < 5; i++)
             {
                 Tonner tonner = new Tonner();
                 tonner.descricao = vTon[i];
-                tonner.cor = vCores[i];
+                tonner.valor = vValor[i];
+                tonner.quantidade = randNum.Next(0, 5000);
                 contexto.Tonners.Add(tonner);
             }
             contexto.SaveChanges();

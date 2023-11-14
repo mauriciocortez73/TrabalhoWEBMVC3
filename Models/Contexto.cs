@@ -15,7 +15,5 @@ namespace TrabalhoWEBMVC3.Models
         public DbSet<Tonner> Tonners { get; set; }
 
         public DbSet<Pedido> Pedidos { get; set; }
-
-        public DbSet<Estoque> Estoques { get; set; }
     }
 }

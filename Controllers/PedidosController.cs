@@ -49,7 +49,7 @@ namespace TrabalhoWEBMVC3.Controllers
         public IActionResult Create()
         {
             ViewData["impressorasID"] = new SelectList(_context.Impressoras, "id", "descricao");
-            ViewData["tonnersID"] = new SelectList(_context.Tonners, "id", "cor");
+            ViewData["tonnersID"] = new SelectList(_context.Tonners, "id", "descricao");
             return View();
         }
 
@@ -62,12 +62,19 @@ namespace TrabalhoWEBMVC3.Controllers
         {
             if (ModelState.IsValid)
             {
+                //atualizando lista de tonner após um pedido subtraindo a quantidade do pedido
+                //realizou um pedido de tonner e o estoque diminui o quanto foi pedido
+                Tonner tonner = await _context.Tonners.FindAsync(pedido.tonnersID);
+                tonner.quantidade = tonner.quantidade - pedido.quantidade;
+                pedido.valor = tonner.valor * pedido.quantidade;
+                _context.Update(tonner);
+
                 _context.Add(pedido);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             ViewData["impressorasID"] = new SelectList(_context.Impressoras, "id", "descricao", pedido.impressorasID);
-            ViewData["tonnersID"] = new SelectList(_context.Tonners, "id", "cor", pedido.tonnersID);
+            ViewData["tonnersID"] = new SelectList(_context.Tonners, "id", "descricao", pedido.tonnersID);
             return View(pedido);
         }
 
@@ -85,7 +92,7 @@ namespace TrabalhoWEBMVC3.Controllers
                 return NotFound();
             }
             ViewData["impressorasID"] = new SelectList(_context.Impressoras, "id", "descricao", pedido.impressorasID);
-            ViewData["tonnersID"] = new SelectList(_context.Tonners, "id", "cor", pedido.tonnersID);
+            ViewData["tonnersID"] = new SelectList(_context.Tonners, "id", "descricao", pedido.tonnersID);
             return View(pedido);
         }
 
@@ -122,7 +129,7 @@ namespace TrabalhoWEBMVC3.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["impressorasID"] = new SelectList(_context.Impressoras, "id", "descricao", pedido.impressorasID);
-            ViewData["tonnersID"] = new SelectList(_context.Tonners, "id", "cor", pedido.tonnersID);
+            ViewData["tonnersID"] = new SelectList(_context.Tonners, "id", "descricao", pedido.tonnersID);
             return View(pedido);
         }
 

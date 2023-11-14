@@ -15,9 +15,12 @@ namespace TrabalhoWEBMVC3.Models
         [Display(Name = "Descricao")]
         public string descricao { get; set; }
 
-        [Required(ErrorMessage = "Campo Cor é obrigatório...")]
-        [StringLength(35)]
-        [Display(Name = "Cor")]
-        public string cor { get; set; }
+        [Required(ErrorMessage = "Campo Valor é obrigatório.")]
+        [Display(Name = "Valor")]
+        public double valor { get; set; }
+
+        [Required(ErrorMessage = "Campo Quantidades é obrigatório.")]
+        [Display(Name = "Quantidades")]
+        public int quantidade { get; set; }
     }
 }

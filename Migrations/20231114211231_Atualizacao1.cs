@@ -5,7 +5,7 @@
 namespace TrabalhoWEBMVC3.Migrations
 {
     /// <inheritdoc />
-    public partial class Atualizacao2 : Migration
+    public partial class Atualizacao1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

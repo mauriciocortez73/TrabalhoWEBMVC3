@@ -53,7 +53,7 @@ namespace TrabalhoWEBMVC3.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,descricao,cor")] Tonner tonner)
+        public async Task<IActionResult> Create([Bind("id,descricao,valor,quantidade")] Tonner tonner)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace TrabalhoWEBMVC3.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,descricao,cor")] Tonner tonner)
+        public async Task<IActionResult> Edit(int id, [Bind("id,descricao,valor,quantidade")] Tonner tonner)
         {
             if (id != tonner.id)
             {

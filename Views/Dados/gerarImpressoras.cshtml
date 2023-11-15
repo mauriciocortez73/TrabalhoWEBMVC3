@@ -1,16 +1,16 @@
 ﻿@model IEnumerable<TrabalhoWEBMVC3.Models.Impressora>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "gerarImpressoras";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Listagem de Equipamentos</h1>
+<h1>gerarImpressoras</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table" id="table-impressora">
+<table class="table">
     <thead>
         <tr>
             <th>
@@ -32,9 +32,9 @@
                 @Html.DisplayFor(modelItem => item.patrimonio)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.id">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.id">Detalhes</a> |
-                <a asp-action="Delete" asp-route-id="@item.id">Deletar</a>
+                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
             </td>
         </tr>
 }

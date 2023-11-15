@@ -8,7 +8,7 @@
 <h1>Listagem de Empresas</h1>
 
 <p>
-    <a asp-action="Create">Cadastrar</a>
+    <a class="btn btn-info" role="button" asp-controller="Empresas" asp-action="Create">Cadastrar</a>
 </p>
 <table class="table" id="table-empresa">
     <thead>
@@ -32,9 +32,9 @@
                 @Html.DisplayFor(modelItem => item.cnpj)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.id">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.id">Detalhes</a> |
-                <a asp-action="Delete" asp-route-id="@item.id">Deletar</a>
+                    <a role="button" class="btn btn-primary" asp-action="Edit" asp-route-id="@item.id">Editar</a> |
+                    <a role="button" class="btn btn-warning" asp-action="Details" asp-route-id="@item.id">Detalhes</a> |
+                    <a role="button" class="btn btn-danger" asp-action="Delete" asp-route-id="@item.id">Deletar</a>
             </td>
         </tr>
 }

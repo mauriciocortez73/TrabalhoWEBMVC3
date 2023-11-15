@@ -11,6 +11,7 @@ namespace TrabalhoWEBMVC3.Controllers
 {
     public class ImpressorasController : Controller
     {
+
         private readonly Contexto _context;
 
         public ImpressorasController(Contexto context)

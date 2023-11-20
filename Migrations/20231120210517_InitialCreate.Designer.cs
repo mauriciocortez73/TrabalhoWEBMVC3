@@ -11,8 +11,8 @@ using TrabalhoWEBMVC3.Models;
 namespace TrabalhoWEBMVC3.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20231114210353_Inicial")]
-    partial class Inicial
+    [Migration("20231120210517_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

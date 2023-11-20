@@ -23,13 +23,12 @@
                 <input asp-for="cnpj" class="form-control" />
                 <span asp-validation-for="cnpj" class="text-danger"></span>
             </div>
+            <div>
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a role="button" class="btn btn-secondary" asp-action="Index">Voltar</a>
+            </div>
         </form>
     </div>
-</div>
-
-<div>
-    <input type="submit" value="Save" class="btn btn-primary" />
-    <a role="button" class="btn btn-secondary" asp-action="Index">Voltar</a>
 </div>
 
 @section Scripts {
